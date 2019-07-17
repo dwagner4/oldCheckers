@@ -1,0 +1,14 @@
+canvas {
+    border: 5px solid black;
+    background-size: 100%;
+}
+
+.container {
+  border: 5px solid #ffcc5c;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+

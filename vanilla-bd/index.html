@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CkerBd</title>
+    <style>
+      canvas {
+        border: 5px solid black;
+        background-size: 100%;
+      }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+        <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.6.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <!--script defer src="/__/firebase/5.6.0/firebase-auth.js"></script-->
+    <script defer src="/__/firebase/5.6.0/firebase-database.js"></script>
+    <!--script defer src="/__/firebase/5.6.0/firebase-firestore.js"></script-->
+    <!--<script defer src="/__/firebase/5.6.0/firebase-messaging.js"></script>-->
+    <!--<script defer src="/__/firebase/5.6.0/firebase-storage.js"></script>-->
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+    <script src="/js/ckbd.js"></script>
+  </head>
+  <body>
+    <h2>Checker Board</h2>
+    <canvas id="board"
+        width="504"
+        height="504">
+    </canvas>
+    <br>
+    <label for="userInput">User:</label>
+    <br>
+    <input type="text" id="userInput"/>
+    <br>
+    <p>Latest Moves:</p>
+    <ul id="movesLog"></ul>
+    <br>
+    <p>Moves saved to Database:</p>
+    <ul id="dbMoves"></ul>
+  </body>
+</html>

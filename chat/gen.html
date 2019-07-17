@@ -1,0 +1,118 @@
+<form id="genGamesForm">
+    <input type="text" class="form-control" placeholder="Nbr Games" id="numGames">
+    <button type="submit">Gen Games</button>
+</form>
+<br>
+<pre id="playersObj"></pre>
+<br>
+<ul id="mylist"></ul>
+<span id="msg"></span>
+<script type="text/javascript">
+    let gamesList = [];
+    const playersObj = document.getElementById('playersObj');
+    let thisItem = document.getElementById('mylist');
+
+    /**
+    RANDOM DATA AREA
+    **/
+
+    function getRandomState() {
+        const state = ["Start", "Stop", "Update"];
+        return state[Math.floor(Math.random() * state.length)];
+    }
+
+    function getRandomName() {
+        let myArray = ["Patrick", "Dean", "Safi", "Logan"];
+        return myArray[Math.floor(Math.random() * myArray.length)];
+    }
+
+    function getRandomStatus() {
+        let myArray = ["inProgress", "gameOver"];
+        return myArray[Math.floor(Math.random() * myArray.length)];
+    }
+
+    /**
+    CLASSES AREA
+    **/
+
+    let Player = function () {
+        this.state = getRandomState();
+        this.user = getRandomName();
+        this.gameID = makeid(10);
+    }
+
+    let Game = function () {
+        this.gameID = makeid(10);
+        this.state = getRandomState();
+        this.user = getRandomName();
+        this.public = true;
+        this.status = getRandomStatus();
+        this.playerCount = 1;
+        this.difficulty = "easy";
+    }
+
+
+    /**
+    FORM AREA
+    **/
+
+    // Listen for form submit
+    document.getElementById('genGamesForm').addEventListener('submit', genGamesForm);
+
+    // Submit form
+    function genGamesForm(e) {
+        e.preventDefault();
+
+        // Get values
+        let number = document.getElementById('numGames').value;
+
+        // Send to function
+        console.log("genGames called");
+        genGames(number);
+
+        // Clear form
+        document.getElementById('genGamesForm').reset();
+    }
+
+    /**
+    FUNCTIONS AREA
+    **/
+
+    function makeid(len) {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for (var i = 0; i < len; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        return text;
+
+        // document.getElementById('msg').innerHTML = text;
+    }
+
+    function genGames(number) {
+        console.log(number + " called");
+        if (number > 0) {
+            for (let i = 0; i < number; i++) {
+                gamesList.push(new Game());
+            }
+        } else {
+            alert("Please enter a number.");
+        }
+        playersObj.innerHTML = JSON.stringify(gamesList, null, 3);
+        gamesList.forEach(element => {
+            makeList(element.gameID, element.playerCount);
+        });
+    }
+
+
+    function makeList(gameID, playerCount) {
+        var item = document.createElement("li");
+        item.id = gameID;
+        item.innerHTML = '<button id="create-game">' + 'Join ' + gameID + '</button>';
+        item.addEventListener("click", function () {
+            console.log("joinging game " + gameID);
+        });
+
+        thisItem.appendChild(item);
+    }
+</script>

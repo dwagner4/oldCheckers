@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>dialog</title>
+    <script defer src="/__/firebase/5.6.0/firebase-app.js"></script>
+    <script defer src="/__/firebase/5.6.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.6.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/init.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/dialogUI.js"></script>
+  </head>
+  <body>
+    <dialog id="auth-dialog">
+      <input style="width:auto;" type="text" id="email" name="email" placeholder="Email"/>
+      <br/>
+      <input style="width:auto;" type="password" id="password" name="password" placeholder="Password"/>
+      <br/>
+      <menu>
+        <button id="donut-sign-in" name="signin">Sign In</button>
+        &nbsp;&nbsp;&nbsp;
+        <button id="donut-sign-up" name="signup">Sign Up</button>
+        &nbsp;&nbsp;&nbsp;
+        <button disabled id="donut-verify-email" name="verify-email">Send Email Verification</button>
+        &nbsp;&nbsp;&nbsp;
+        <button id="donut-password-reset" name="verify-email">Send Password Reset Email</button>
+        <button id="donut-password-cancel" name="password-cancel">Cancel</button>
+        <button id="cancel-btn">Cancel</button>
+      </menu>
+    </dialog>
+    <h1>Donut Login</h1>
+    <button class="" id="auth-dialog-btn" name="auth-dialog">Auth-dialog</button>
+    <p id="msg"></p>
+    <script>
+      window.onload = function () {
+        loginInit();
+        dialogUIinit();
+      }
+      // document.getElementById('auth-dialog').addEventListener('click', function () {
+      //   alert("yoho");
+      // }, false);
+    </script>
+
+  </body>
+</html>

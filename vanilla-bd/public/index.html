@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CkerBd</title>
+    <style>
+      canvas {
+        border: 5px solid black;
+        background-size: 100%;
+      }body {
+        background-color: #aaaaaa;
+      }
+
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+        <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.6.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <!--script defer src="/__/firebase/5.6.0/firebase-auth.js"></script-->
+    <script defer src="/__/firebase/5.6.0/firebase-database.js"></script>
+    <!--script defer src="/__/firebase/5.6.0/firebase-firestore.js"></script-->
+    <!--<script defer src="/__/firebase/5.6.0/firebase-messaging.js"></script>-->
+    <!--<script defer src="/__/firebase/5.6.0/firebase-storage.js"></script>-->
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+    <script src="/js/ckbd.js"></script>
+    <script src="/js/ruleEngine.js"></script>
+    <script src="/js/gameLogic.js"></script>
+  </head>
+  <body>
+    <h2>Checker Board</h2>
+    <span id="msgbd"></span>
+
+    <br><br>
+    <div id="checkerboard"></div>
+    <input id="gameid" type="text" placeholder="Game ID" onchange="setgameid()">
+  </body>
+</html>

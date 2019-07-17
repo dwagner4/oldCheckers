@@ -1,0 +1,110 @@
+//Allow everyone to read and write
+{
+  "rules": {
+    ".read": "true",
+    ".write": "true"
+  }
+}
+
+//Deny everyone read and write
+//{
+  //"rules": {
+    //".read": "true",
+    //".write": "true"
+  //}
+//}
+
+//Allow only authenticated read and write
+//{
+  //"rules": {
+    //".read": "auth != null",
+    //".write": "auth != null"
+  //}
+//}
+
+//Allow access to content user created
+//{
+  //"rules": {
+    //"posts": {
+      //"$uid": {
+        //".read": "$uid === auth.uid",
+        //".write": "$uid === auth.uid"
+      //}
+    //}
+  //}
+//}
+
+//Allow access for moderators
+//{
+  //"rules": {
+    //"posts": {
+      //"$uid": {
+        //".write": "root.child(users).child('moderator').val() === true"
+      //}
+    //}
+  //}
+//}
+
+//Validate input integrity
+//{
+  //"rules": {
+    //"posts": {
+      //"$uid": {
+        //".validate": "newData.isString()
+        //              &&newData.val().length > 0
+        //              &&newData.val().length <= 255"
+      //}
+    //}
+  //}
+//}
+
+//Validate timeframe
+//{
+  //"rules": {
+    //"posts": {
+      //"$uid": {
+        //"timestamp": {
+          //".validate": "newData.val() <= now"
+        //}
+      //}
+    //}
+  //}
+//}
+
+//Validate for child attributes
+//{
+  //"rules": {
+    //"posts": {
+      //"$uid": {
+        //"timestamp": {
+          //".validate": "newData.hasChildren(['username', 'timestamp'])"
+        //}
+      //}
+    //}
+  //}
+//}
+
+//Validate data exists
+//{
+  //"rules": {
+    //"posts": {
+      //"$uid": {
+        //"timestamp": {
+          //".validate": "!newData.exists()"
+        //}
+      //}
+    //}
+  //}
+//}
+
+//Deny initially then assign write to authenticated users
+//{
+  //"rules": {
+    //".read": "true",
+    //".write": "false"
+    
+      //"posts": {
+        //".write": "auth != null"
+      //}
+  //}
+//}
